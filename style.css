@@ -132,7 +132,7 @@ header .container {
 
 /* --- Hero Section --- */
 .hero-section {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(image/Machine\ Background.jpeg) no-repeat center center/cover; /* Updated text */
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(Machine\ Background\ mp.jpeg) no-repeat center center/cover; /* Updated text */
     color: #fff;
     padding: 100px 0;
     text-align: center;
@@ -744,4 +744,5 @@ footer .bottom-bar {
     .product-card img {
         height: 200px;
     }
+
 }
