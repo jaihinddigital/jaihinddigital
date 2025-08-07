@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standard Visiting Cards - Jaihind Digital</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* --- Global Styles & Reset (Copied from main index.html for consistency) --- */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1280px;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- Header Styles (Copied from main index.html for consistency) --- */
+        header {
+            background: #ffffff;
+            padding: 15px 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo h1 {
+            margin: 0;
+            font-size: 2em;
+            color: #007bff;
+            font-weight: 700;
+        }
+
+        .main-nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .main-nav li {
+            display: inline-block;
+            margin-left: 30px;
+        }
+
+        .main-nav a {
+            font-weight: 500;
+            padding: 8px 0;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            background-color: #007bff;
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .main-nav a:hover::after {
+            width: 100%;
+        }
+        .main-nav a:hover {
+            color: #007bff;
+        }
+
+        .header-icons {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-icons .icon {
+            margin-left: 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .header-icons .icon:hover {
+            color: #007bff;
+        }
+
+        .search-bar {
+            position: relative;
+            margin-left: 20px;
+        }
+
+        .search-bar input {
+            border: 1px solid #ddd;
+            padding: 8px 10px 8px 35px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            width: 150px;
+            transition: width 0.3s ease;
+        }
+
+        .search-bar input:focus {
+            width: 200px;
+            outline: none;
+            border-color: #007bff;
+        }
+
+        .search-bar i {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+        }
+
+        /* --- Breadcrumbs --- */
+        .breadcrumbs {
+            padding: 15px 0;
+            font-size: 0.9em;
+            color: #666;
+        }
+        .breadcrumbs a {
+            color: #007bff;
+            margin: 0 5px;
+        }
+        .breadcrumbs span {
+            margin: 0 5px;
+        }
+
+        /* --- Product Detail Section --- */
+        .product-detail-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            margin-bottom: 40px;
+        }
+
+        .product-images {
+            flex: 1 1 45%; /* Flex-grow, flex-shrink, flex-basis */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .main-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .thumbnail-gallery {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .thumbnail-gallery img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+            border: 2px solid #eee;
+            cursor: pointer;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+        .thumbnail-gallery img:hover, .thumbnail-gallery img.active {
+            border-color: #007bff;
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            flex: 1 1 50%;
+        }
+
+        .product-info h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .product-rating {
+            color: #ffc107; /* Star color */
+            margin-bottom: 15px;
+        }
+        .product-rating span {
+            color: #666;
+            font-size: 0.9em;
+            margin-left: 5px;
+        }
+
+        .product-description p {
+            font-size: 1em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .price-section {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 20px;
+        }
+        .current-price {
+            font-size: 2.8em;
+            font-weight: 700;
+            color: #e67e22; /* Orange for current price */
+            margin-right: 15px;
+        }
+        .original-price {
+            font-size: 1.4em;
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        /* Customization Options */
+        .customization-options {
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+
+        .option-group {
+            margin-bottom: 20px;
+        }
+        .option-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #444;
+            font-size: 1.1em;
+        }
+        .option-group select, .option-group input[type="number"] {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            appearance: none; /* Remove default select arrow */
+            background-color: #fefefe;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007bff%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-6.5%200-12.3%203.2-16.2%208.1-3.9%204.9-4.2%2011.5-1%2016.4l132.8%20150.8c3.9%204.4%209.1%206.9%2014.8%206.9s10.9-2.4%2014.8-6.9l132.8-150.8c3.2-5%202.9-11.6-1-16.4z%22%2F%3E%3C%2Fsvg%3E');
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 12px;
+            cursor: pointer;
+        }
+
+        .option-group .radio-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .option-group .radio-options input[type="radio"] {
+            display: none; /* Hide default radio button */
+        }
+        .option-group .radio-options label {
+            background-color: #f0f2f5;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+            font-size: 0.95em;
+            margin: 0; /* Override default label margin */
+            font-weight: normal;
+        }
+        .option-group .radio-options input[type="radio"]:checked + label {
+            background-color: #e6f2ff; /* Light blue */
+            border-color: #007bff;
+            color: #007bff;
+            font-weight: 500;
+        }
+        .option-group .radio-options label:hover {
+            background-color: #e9ecef;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .product-actions button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .product-actions .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+        }
+        .product-actions .btn-primary:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        .product-actions .btn-secondary {
+            background-color: #f0f2f5;
+            color: #333;
+            border: 1px solid #ccc;
+        }
+        .product-actions .btn-secondary:hover {
+            background-color: #e9ecef;
+            transform: translateY(-2px);
+        }
+
+        /* --- Product Details Tabs --- */
+        .product-details-tabs {
+            margin-top: 50px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            padding: 30px;
+        }
+
+        .tabs-nav {
+            display: flex;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .tab-button {
+            background: none;
+            border: none;
+            padding: 15px 25px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            color: #666;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .tab-button.active {
+            color: #007bff;
+        }
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #007bff;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+        }
+        .tab-button:hover:not(.active) {
+            color: #333;
+        }
+
+        .tab-content {
+            padding: 20px 0;
+        }
+        .tab-content h3 {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .tab-content ul {
+            list-style: disc;
+            margin-left: 20px;
+            color: #555;
+        }
+        .tab-content p {
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        /* --- Reviews Section --- */
+        .reviews-section {
+            margin-top: 50px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            padding: 30px;
+        }
+        .reviews-section .section-title {
+            margin-bottom: 30px;
+            padding-bottom: 0;
+        }
+        .reviews-section .section-title::after {
+            display: none; /* Hide underline for inner section title */
+        }
+        .review-card {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+        .review-card:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .review-card .reviewer-name {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .review-card .review-rating {
+            color: #ffc107;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        .review-card .review-text {
+            color: #555;
+            font-size: 0.95em;
+        }
+
+        /* --- Related Products Section (Copied/Adapted from main index.html) --- */
+        .related-products-section {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Slightly smaller for related products */
+            gap: 25px;
+        }
+
+        .product-card {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            padding: 15px; /* Slightly less padding */
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        .product-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        .product-card .badge {
+            position: absolute;
+            top: 10px; /* Adjusted position */
+            right: 10px;
+            background-color: #dc3545;
+            color: white;
+            padding: 3px 8px; /* Smaller badge */
+            border-radius: 4px;
+            font-size: 0.7em;
+            font-weight: bold;
+            z-index: 10;
+        }
+        .product-card .badge.new {
+            background-color: #28a745;
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: 200px; /* Adjusted height for related products */
+            object-fit: contain;
+            margin-bottom: 10px;
+            border-radius: 6px;
+        }
+        .product-card h3 {
+            margin: 10px 0 8px;
+            font-size: 1.2em;
+        }
+        .product-card .price {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+        .product-card button {
+            padding: 10px 20px;
+            font-size: 1em;
+        }
+
+        /* --- Footer Styles (Copied from main index.html for consistency) --- */
+        footer {
+            background: #212529;
+            color: #bbb;
+            padding: 50px 0 20px;
+            font-size: 0.95em;
+        }
+
+        footer .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        footer .footer-col {
+            margin-bottom: 20px;
+        }
+
+        footer .footer-col h3 {
+            color: #fff;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        footer .footer-col h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background-color: #007bff;
+            bottom: 0;
+            left: 0;
+        }
+
+        footer .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        footer .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        footer .footer-col a {
+            color: #bbb;
+            transition: color 0.3s ease;
+        }
+
+        footer .footer-col a:hover {
+            color: #007bff;
+        }
+
+        footer .contact-info p {
+            margin-bottom: 8px;
+        }
+        footer .contact-info a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        footer .contact-info a:hover {
+            color: #007bff;
+        }
+        footer .contact-info i {
+            margin-right: 8px;
+            color: #007bff;
+        }
+
+        footer .social-links {
+            margin-top: 20px;
+        }
+        footer .social-links a {
+            color: #fff;
+            font-size: 1.4em;
+            margin-right: 15px;
+            transition: color 0.3s ease;
+        }
+        footer .social-links a:hover {
+            color: #007bff;
+        }
+
+        footer .bottom-bar {
+            text-align: center;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            margin-top: 30px;
+            color: #999;
+        }
+
+        /* --- Scroll to Top Button (Copied from main index.html for consistency) --- */
+        #scrollToTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 99;
+            font-size: 24px;
+            border: none;
+            outline: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            padding: 10px 15px;
+            border-radius: 50%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            transition: background-color 0.3s, opacity 0.3s;
+        }
+
+        #scrollToTopBtn:hover {
+            background-color: #0056b3;
+        }
+
+
+        /* --- Responsive Design (Copied/Adapted from main index.html for consistency) --- */
+        @media (max-width: 992px) {
+            header .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .main-nav {
+                margin-top: 15px;
+                width: 100%;
+            }
+            .main-nav ul {
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+            }
+            .main-nav li {
+                margin: 5px 15px;
+            }
+            .header-icons {
+                margin-top: 15px;
+                width: 100%;
+                justify-content: flex-end;
+            }
+            .search-bar {
+                margin-left: 0;
+                margin-right: 15px;
+            }
+            .product-detail-section {
+                flex-direction: column;
+            }
+            .product-images, .product-info {
+                flex: 1 1 100%;
+            }
+            .thumbnail-gallery img {
+                width: 60px;
+                height: 60px;
+            }
+            .product-info h1 {
+                font-size: 2em;
+            }
+            .current-price {
+                font-size: 2.2em;
+            }
+            .original-price {
+                font-size: 1.1em;
+            }
+            .product-actions {
+                flex-direction: column;
+            }
+            .product-actions button {
+                width: 100%;
+            }
+            .product-details-tabs {
+                padding: 20px;
+            }
+            .tab-button {
+                padding: 10px 15px;
+                font-size: 1em;
+            }
+            .product-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+            footer .container {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .logo h1 {
+                font-size: 1.8em;
+            }
+            .main-nav ul {
+                justify-content: center;
+            }
+            .main-nav li {
+                margin: 5px 10px;
+            }
+            .search-bar input {
+                width: 120px;
+            }
+            .product-detail-section {
+                padding: 20px;
+                gap: 20px;
+            }
+            .thumbnail-gallery img {
+                width: 50px;
+                height: 50px;
+            }
+            .product-info h1 {
+                font-size: 1.8em;
+            }
+            .current-price {
+                font-size: 1.8em;
+            }
+            .option-group select, .option-group input[type="number"], .option-group .radio-options label {
+                padding: 8px 12px;
+                font-size: 0.9em;
+            }
+            .product-actions button {
+                font-size: 1em;
+                padding: 10px 20px;
+            }
+            .tab-button {
+                font-size: 0.9em;
+            }
+            .reviews-section, .related-products-section {
+                padding: 20px;
+            }
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            footer .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            footer .footer-col h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            footer .contact-info i {
+                margin-right: 5px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo h1 {
+                font-size: 1.5em;
+            }
+            .search-bar input {
+                width: 100px;
+                padding-left: 30px;
+            }
+            .search-bar input:focus {
+                width: 150px;
+            }
+            .thumbnail-gallery {
+                justify-content: space-around;
+            }
+            .thumbnail-gallery img {
+                width: 45px;
+                height: 45px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index4.html"> <img src="Jaihind Logo.png" alt="Jaihind Digital Logo" style="max-height: 50px;">
+    </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html#hero-section">Home</a></li>
+                    <li><a href="index.html#services-section">Our Services</a></li>
+                    <li><a href="index.html#sample-prints-section">Sample Prints</a></li>
+                    <li><a href="index.html#why-choose-us">Why Us?</a></li>
+                    <li><a href="index.html#contact-us-footer">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search services...">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="breadcrumbs">
+                <a href="index.html">Home</a> <span>/</span> <a href="index.html#services-section">Our Services</a> <span>/</span> Standard Visiting Cards
+            </div>
+
+            <section class="product-detail-section">
+                <div class="product-images">
+                    <div class="main-image">
+                        <img id="mainProductImage" src="https://via.placeholder.com/600x450/e0e0e0/333333?text=Standard+Visiting+Card" alt="Standard Visiting Card Main Image">
+                    </div>
+                    <div class="thumbnail-gallery">
+                        <img src="https://via.placeholder.com/100x100/e0e0e0/333333?text=Card+View+1" alt="Thumbnail 1" onclick="changeMainImage(this)">
+                        <img src="https://via.placeholder.com/100x100/d0d0d0/333333?text=Card+View+2" alt="Thumbnail 2" onclick="changeMainImage(this)">
+                        <img src="https://via.placeholder.com/100x100/c0c0c0/333333?text=Card+Mockup" alt="Thumbnail 3" onclick="changeMainImage(this)">
+                        <img src="https://via.placeholder.com/100x100/b0b0b0/333333?text=Card+Texture" alt="Thumbnail 4" onclick="changeMainImage(this)">
+                    </div>
+                </div>
+
+                <div class="product-info">
+                    <h1>Standard Visiting Cards</h1>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span>(4.5/5 stars from 85 reviews)</span>
+                    </div>
+                    <div class="product-description">
+                        <p>Our Standard Visiting Cards are perfect for making a lasting first impression. Printed on high-quality material, these cards ensure your professional details stand out with clarity and style.</p>
+                        <ul>
+                            <li>Premium Quality Paper</li>
+                            <li>Vibrant, Long-Lasting Colors</li>
+                            <li>Standard Size (3.5 x 2 inches)</li>
+                            <li>Customizable with Your Design</li>
+                            <li>Fast Turnaround Time</li>
+                        </ul>
+                    </div>
+
+                    <div class="price-section">
+                        <span class="current-price">₹299</span>
+                        <span class="original-price">₹399</span>
+                    </div>
+
+                    <div class="customization-options">
+                        <div class="option-group">
+                            <label for="material">Material:</label>
+                            <select id="material">
+                                <option value="matte">Matte Finish (300 GSM)</option>
+                                <option value="glossy">Glossy Finish (300 GSM)</option>
+                                <option value="textured">Textured Paper (250 GSM)</option>
+                            </select>
+                        </div>
+
+                        <div class="option-group">
+                            <label for="quantity">Quantity:</label>
+                            <select id="quantity">
+                                <option value="100">100 Cards</option>
+                                <option value="250">250 Cards</option>
+                                <option value="500">500 Cards</option>
+                                <option value="1000">1000 Cards</option>
+                            </select>
+                        </div>
+                        
+                        <div class="option-group">
+                            <label>Orientation:</label>
+                            <div class="radio-options">
+                                <input type="radio" id="horizontal" name="orientation" value="horizontal" checked>
+                                <label for="horizontal">Horizontal</label>
+                                <input type="radio" id="vertical" name="orientation" value="vertical">
+                                <label for="vertical">Vertical</label>
+                            </div>
+                        </div>
+
+                        <div class="option-group">
+                            <label for="print-type">Print Type:</label>
+                            <select id="print-type">
+                                <option value="single-sided">Single Sided</option>
+                                <option value="double-sided">Double Sided</option>
+                            </select>
+                        </div>
+
+                        <div class="option-group">
+                            <label for="corners">Corners:</label>
+                            <select id="corners">
+                                <option value="sharp">Sharp Corners</option>
+                                <option value="rounded">Rounded Corners</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="product-actions">
+                        <button class="btn-primary"><i class="fas fa-upload"></i> Upload Your Design</button>
+                        <button class="btn-secondary"><i class="fas fa-plus-circle"></i> Add to Cart</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="product-details-tabs">
+                <div class="tabs-nav">
+                    <button class="tab-button active" onclick="openTab(event, 'about')">About the Product</button>
+                    <button class="tab-button" onclick="openTab(event, 'specs')">Product Specifications</button>
+                    <button class="tab-button" onclick="openTab(event, 'faqs')">FAQs</button>
+                    <button class="tab-button" onclick="openTab(event, 'reviews')">Reviews</button>
+                </div>
+
+                <div id="about" class="tab-content active">
+                    <h3>Everything You Need to Know</h3>
+                    <p>Our standard visiting cards are digitally printed on premium 300 GSM paper, ensuring a professional look and feel. They are ideal for networking, personal branding, and daily business use. Easy to design, order, and receive!</p>
+                    <p>Available in both matte and glossy finishes to suit your preference. Our printing process guarantees vibrant colors and sharp details, making your contact information easily readable and memorable.</p>
+                </div>
+
+                <div id="specs" class="tab-content" style="display:none;">
+                    <h3>Detailed Specifications</h3>
+                    <ul>
+                        <li>**Card Size:** 3.5 x 2 inches (Standard)</li>
+                        <li>**Material Options:** 300 GSM Matte Paper, 300 GSM Glossy Paper, 250 GSM Textured Paper</li>
+                        <li>**Print Type:** Single-sided or Double-sided CMYK Printing</li>
+                        <li>**Corners:** Sharp or Rounded (3mm radius)</li>
+                        <li>**Resolution:** High-resolution (300 DPI recommended for submitted designs)</li>
+                        <li>**Bleed Area:** 3mm on all sides recommended</li>
+                        <li>**Packaging:** Securely packed to prevent damage</li>
+                    </ul>
+                </div>
+
+                <div id="faqs" class="tab-content" style="display:none;">
+                    <h3>Frequently Asked Questions</h3>
+                    <p><strong>Q: How long does it take to print and deliver?</strong></p>
+                    <p>A: Standard orders are typically printed within 2-3 business days and delivered within 4-7 business days, depending on your location.</p>
+                    <p><strong>Q: Can I upload my own design?</strong></p>
+                    <p>A: Yes, absolutely! You can upload your design files (PDF, JPG, PNG) directly on the order page. Please ensure your design is high-resolution (300 DPI).</p>
+                    <p><strong>Q: What if I don't have a design?</strong></p>
+                    <p>A: No problem! We offer professional design services at an additional cost. Contact us with your requirements, and our team will help you create a stunning design.</p>
+                    <p><strong>Q: Do you offer bulk discounts?</strong></p>
+                    <p>A: Yes, discounts are available for larger quantities. The pricing automatically adjusts as you select higher quantities.</p>
+                </div>
+
+                <div id="reviews" class="tab-content" style="display:none;">
+                    <div class="reviews-section">
+                        <h2 class="section-title">Customer Reviews</h2>
+                        <div class="review-card">
+                            <div class="reviewer-name">Amit Kumar</div>
+                            <div class="review-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <div class="review-text">"Excellent quality visiting cards! The matte finish looks very professional. Delivery was also quicker than expected. Very happy with Jaihind Digital."</div>
+                        </div>
+                        <div class="review-card">
+                            <div class="reviewer-name">Priya Singh</div>
+                            <div class="review-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <div class="review-text">"Good service. The rounded corners option gave my cards a unique touch. Will order again!"</div>
+                        </div>
+                        </div>
+                </div>
+            </section>
+
+            <section class="related-products-section container">
+                <h2 class="section-title">You Might Be Interested In</h2>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <img src="https://via.placeholder.com/250x200/e9ecef/333333?text=Premium+Cards" alt="Premium Cards">
+                        <h3>Premium Business Cards</h3>
+                        <p class="price">Starting from ₹499</p>
+                        <button>View Details</button>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://via.placeholder.com/250x200/e9ecef/333333?text=Laminated+Cards" alt="Laminated Cards">
+                        <h3>Laminated Visiting Cards</h3>
+                        <p class="price">Starting from ₹349</p>
+                        <button>View Details</button>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://via.placeholder.com/250x200/e9ecef/333333?text=ID+Cards" alt="ID Cards">
+                        <h3>Plastic ID Cards</h3>
+                        <p class="price">Starting from ₹99/pc</p>
+                        <button>View Details</button>
+                    </div>
+                    <div class="product-card">
+                        <span class="badge new">New</span>
+                        <img src="https://via.placeholder.com/250x200/e9ecef/333333?text=Letterheads" alt="Letterheads">
+                        <h3>Custom Letterheads</h3>
+                        <p class="price">Starting from ₹799</p>
+                        <button>View Details</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer id="contact-us-footer">
+        <div class="container">
+            <div class="footer-col">
+                <h3>Jaihind Digital</h3>
+                <p>Your trusted printing press in Akbarpur, offering all types of printing solutions with quality and speed.</p>
+                <div class="social-links">
+                    <a href="https://wa.me/8917885025" target="_blank" title="WhatsApp Us"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html#hero-section">Home</a></li>
+                    <li><a href="index.html#services-section">Our Services</a></li>
+                    <li><a href="index.html#sample-prints-section">Sample Prints</a></li>
+                    <li><a href="index.html#why-choose-us">Why Choose Us?</a></li>
+                    <li><a href="#contact-us-footer">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Printing Services</h3>
+                <ul>
+                    <li><a href="#">Visiting Cards</a></li>
+                    <li><a href="#">Flex Printing</a></li>
+                    <li><a href="#">Brochures & Pamphlets</a></li>
+                    <li><a href="#">Bill Books</a></li>
+                    <li><a href="#">Stickers & Labels</a></li>
+                    <li><a href="#">Wedding Cards</a></li>
+                </ul>
+            </div>
+            <div class="footer-col contact-info">
+                <h3>Contact Jaihind Digital</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Tanda Road, Patel Nagar, Akbarpur Ambedkar Nagar U.P</p>
+                <p><i class="fas fa-phone"></i> Office: <a href="tel:+919984614008">9984614008</a></p>
+                <p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/8917885025" target="_blank">8917885025</a></p>
+                <p><i class="fas fa-envelope"></i> Email: <a href="mailto:info@jaihinddigital.com">info@jaihinddigital.com</a></p>
+            </div>
+        </div>
+        <div class="bottom-bar">
+            <p>&copy; 2025 Jaihind Digital. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <button onclick="topFunction()" id="scrollToTopBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+
+    <script>
+        // --- Scroll to Top Button Logic (Copied from main index.html) ---
+        let mybutton = document.getElementById("scrollToTopBtn");
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+
+        // --- Thumbnail Image Changer (Simple JS for visual effect) ---
+        function changeMainImage(thumbnail) {
+            const mainImage = document.getElementById('mainProductImage');
+            mainImage.src = thumbnail.src.replace('100x100', '600x450'); // Adjust placeholder size
+
+            // Remove active class from all thumbnails
+            const allThumbnails = document.querySelectorAll('.thumbnail-gallery img');
+            allThumbnails.forEach(img => img.classList.remove('active'));
+
+            // Add active class to the clicked thumbnail
+            thumbnail.classList.add('active');
+        }
+
+        // Set the first thumbnail as active on load
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const firstThumbnail = document.querySelector('.thumbnail-gallery img');
+            if (firstThumbnail) {
+                firstThumbnail.classList.add('active');
+            }
+        });
+
+
+        // --- Tabs Functionality (Simple JS for visual effect) ---
+        function openTab(evt, tabName) {
+            let i, tabcontent, tabbuttons;
+
+            // Hide all tab contents
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Remove the "active" class from all tab buttons
+            tabbuttons = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].classList.remove("active");
+            }
+
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.classList.add("active");
+        }
+
+        // Set "About the Product" tab as active by default on page load
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelector('.tab-button').click();
+        });
+    </script>
+</body>
+</html>
