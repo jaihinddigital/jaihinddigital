@@ -292,7 +292,7 @@ header .container {
 
 /* See All Button Styling */
 .see-all-btn-container {
-    text-align: right; /* Button ko right align karne ke liye */
+    text-align: center; /* Button ko right align karne ke liye */
     margin-top: 20px;
 }
 
@@ -746,3 +746,4 @@ footer .bottom-bar {
     }
 
 }
+
